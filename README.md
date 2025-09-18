@@ -1,4 +1,4 @@
-#Signup Page
+## Signup Page
 
 This is a **practice project** created to learn how to host a webpage on **GitHub Pages**.  
 It’s a simple responsive login/signup UI built using **HTML, CSS, and Font Awesome icons**.
