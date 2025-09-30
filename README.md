@@ -3,7 +3,6 @@
 This is a **practice project** created to learn how to host a webpage on **GitHub Pages**.  
 It’s a simple login/signup UI built using **HTML, CSS, and Font Awesome icons**.
 
----
 
 ## 🚀 Live Demo
 Check out the live page here: [View Demo](https://ayeshashafique018.github.io/githubpagelive/)
