@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BMI Categorization</title>
+</head>
+<body>
+  <script>
+    // Exercise 3: BMI Categorization
+
+    // Ask user for weight (in kilograms)
+    let weightInput = prompt("Enter your weight in kilograms (kg):");
+
+    // Validate weight input
+    if (weightInput === null || weightInput.trim() === "") {
+      alert("❌ Weight not entered.");
+    } else if (isNaN(weightInput) || Number(weightInput) <= 0) {
+      alert("❌ Please enter a valid positive number for weight.");
+    } else {
+      // Ask user for height (in meters)
+      let heightInput = prompt("Enter your height in meters (m):");
+
+      // Validate height input
+      if (heightInput === null || heightInput.trim() === "") {
+        alert("❌ Height not entered.");
+      } else if (isNaN(heightInput) || Number(heightInput) <= 0) {
+        alert("❌ Please enter a valid positive number for height.");
+      } else {
+        // Convert inputs to numbers
+        let weight = Number(weightInput);
+        let height = Number(heightInput);
+
+        // Calculate BMI
+        let bmi = weight / (height * height);
+
+        // Determine BMI category
+        let category;
+        if (bmi < 18.5) {
+          category = "Underweight";
+        } else if (bmi >= 18.5 && bmi <= 24.9) {
+          category = "Normal weight";
+        } else if (bmi >= 25 && bmi <= 29.9) {
+          category = "Overweight";
+        } else {
+          category = "Obese";
+        }
+
+        // Display the result with 2 decimal places
+        alert(`Your BMI is ${bmi.toFixed(2)}\nCategory: ${category}`);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Daily Utilities Toolkit</title>
+</head>
+<body>
+  <script>
+    // Exercise 7: Daily Utilities Toolkit
+
+    // Display menu to user
+    let choice = prompt(
+      "🧰 Daily Utilities Toolkit\n\nChoose an option:\n" +
+      "1️⃣ Format Name\n" +
+      "2️⃣ Generate Random 4-digit OTP\n" +
+      "3️⃣ Search City\n" +
+      "4️⃣ Show Today's Date\n" +
+      "5️⃣ Mini Calculator\n\n" +
+      "Enter your choice (1-5):"
+    );
+
+    // Handle cancel or empty input
+    if (choice === null || choice.trim() === "") {
+      alert("❌ Operation cancelled or no choice entered.");
+    } else {
+      switch (choice) {
+        // Option 1: Format Name
+        case "1":
+          let name = prompt("Enter your full name:");
+          if (!name || name.trim() === "") {
+            alert("⚠️ Please enter a valid name.");
+          } else {
+            // Capitalize first letter of each word
+            let formattedName = name
+              .toLowerCase()
+              .split(" ")
+              .filter(word => word.trim() !== "")
+              .map(word => word[0].toUpperCase() + word.slice(1))
+              .join(" ");
+            alert(`✨ Formatted Name: ${formattedName}`);
+          }
+          break;
+
+        // Option 2: Generate Random 4-digit OTP
+        case "2":
+          let otp = Math.floor(1000 + Math.random() * 9000);
+          alert(`🔢 Your 4-digit OTP is: ${otp}`);
+          break;
+
+        // Option 3: Search City
+        case "3":
+          let cities = ["Karachi", "Lahore", "Islamabad"];
+          let cityInput = prompt("Enter city name to search:");
+          if (!cityInput || cityInput.trim() === "") {
+            alert("⚠️ Please enter a city name.");
+          } else {
+            let found = cities.some(
+              city => city.toLowerCase() === cityInput.toLowerCase().trim()
+            );
+            if (found) {
+              alert(`🏙️ ${cityInput} is in the list.`);
+            } else {
+              alert(`❌ ${cityInput} not found in the list.`);
+            }
+          }
+          break;
+
+        // Option 4: Show Today's Date (dd/mm/yyyy)
+        case "4":
+          let today = new Date();
+          let day = String(today.getDate()).padStart(2, "0");
+          let month = String(today.getMonth() + 1).padStart(2, "0");
+          let year = today.getFullYear();
+          alert(`📅 Today's Date: ${day}/${month}/${year}`);
+          break;
+
+        // Option 5: Mini Calculator
+        case "5":
+          let num1 = prompt("Enter first number:");
+          let num2 = prompt("Enter second number:");
+          let operation = prompt("Choose operation: +, -, *, /");
+
+          if (
+            num1 === null ||
+            num2 === null ||
+            operation === null ||
+            num1.trim() === "" ||
+            num2.trim() === ""
+          ) {
+            alert("❌ Incomplete input. Operation cancelled.");
+            break;
+          }
+
+          if (isNaN(num1) || isNaN(num2)) {
+            alert("⚠️ Please enter valid numbers.");
+            break;
+          }
+
+          num1 = Number(num1);
+          num2 = Number(num2);
+          let result;
+
+          switch (operation) {
+            case "+":
+              result = num1 + num2;
+              break;
+            case "-":
+              result = num1 - num2;
+              break;
+            case "*":
+              result = num1 * num2;
+              break;
+            case "/":
+              if (num2 === 0) {
+                alert("🚫 Division by zero is not allowed.");
+                break;
+              }
+              result = num1 / num2;
+              break;
+            default:
+              alert("⚠️ Invalid operation. Please choose +, -, *, or /.");
+              break;
+          }
+
+          if (result !== undefined) {
+            alert(`🧮 Result: ${num1} ${operation} ${num2} = ${result}`);
+          }
+          break;
+
+        // Invalid menu option
+        default:
+          alert("❌ Invalid choice. Please select 1–5.");
+      }
+    }
+  </script>
+</body>
+</html>

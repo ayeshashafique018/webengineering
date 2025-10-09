@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Temperature Conversion</title>
+</head>
+<body>
+  <script>
+    // Exercise 2: Temperature Conversion
+
+    // Ask user for conversion choice
+    let choice = prompt(
+      "Temperature Conversion:\n1: Fahrenheit → Celsius\n2: Celsius → Fahrenheit\nEnter your choice (1 or 2):"
+    );
+
+    // Check if user canceled or entered nothing
+    if (choice === null || choice.trim() === "") {
+      alert("❌ Operation cancelled or no choice entered.");
+    } else if (choice !== "1" && choice !== "2") {
+      alert("❌ Invalid choice. Please enter 1 or 2.");
+    } else {
+      // Ask for temperature input
+      let tempInput = prompt("Enter the temperature value to convert:");
+
+      if (tempInput === null || tempInput.trim() === "") {
+        alert("❌ No temperature entered.");
+      } else if (isNaN(tempInput)) {
+        alert("❌ Please enter a valid numeric temperature.");
+      } else {
+        // Convert the input to a number
+        let temp = Number(tempInput);
+        let result;
+
+        if (choice === "1") {
+          // Fahrenheit → Celsius
+          result = (temp - 32) / 1.8;
+          alert(`${temp}°F = ${result.toFixed(2)}°C`);
+        } else {
+          // Celsius → Fahrenheit
+          result = (temp * 1.8) + 32;
+          alert(`${temp}°C = ${result.toFixed(2)}°F`);
+        }
+      }
+    }
+  </script>
+</body>
+</html>

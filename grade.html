@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Marks & Grade System</title>
+</head>
+<body>
+  <script>
+    // Exercise 6: Student Marks & Grade System
+
+    // 1. Create an array of 5 subjects
+    let subjects = ["Math", "English", "Science", "Computer", "History"];
+    let marks = [];
+    let total = 0;
+    let validInput = true;
+
+    // 2. Ask user to enter marks for each subject
+    for (let i = 0; i < subjects.length; i++) {
+      let input = prompt(`Enter marks for ${subjects[i]} (0–100):`);
+
+      // Handle cancel or empty input
+      if (input === null) {
+        alert("❌ Input cancelled. Exiting...");
+        validInput = false;
+        break;
+      }
+
+      // Validate numeric input
+      if (isNaN(input) || input.trim() === "") {
+        alert("⚠️ Please enter a valid number.");
+        i--; // retry current subject
+        continue;
+      }
+
+      let mark = Number(input);
+
+      // 8. Handle invalid marks (negative, >100)
+      if (mark < 0 || mark > 100) {
+        alert("⚠️ Marks must be between 0 and 100.");
+        i--; // retry current subject
+        continue;
+      }
+
+      marks.push(mark);
+      total += mark;
+    }
+
+    // Proceed only if all inputs are valid
+    if (validInput && marks.length === subjects.length) {
+      // 3. Calculate total, percentage
+      let percentage = total / subjects.length;
+
+      // 4–6. Assign grade
+      let grade;
+      if (percentage >= 80) {
+        grade = "A";
+      } else if (percentage >= 60) {
+        grade = "B";
+      } else {
+        grade = "Fail";
+      }
+
+      // 7. Display formatted result
+      let result = "📘 Student Marks Report\n\n";
+      for (let i = 0; i < subjects.length; i++) {
+        result += `${subjects[i]}: ${marks[i]}%\n`;
+      }
+      result += `\nTotal: ${total}\nPercentage: ${percentage.toFixed(2)}%\nGrade: ${grade}`;
+
+      alert(result);
+    }
+  </script>
+</body>
+</html>

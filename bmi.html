@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BMI Calculation (lb & in)</title>
+</head>
+<body>
+  <script>
+    // Exercise 4: BMI Calculation (Imperial System)
+
+    // Ask for weight in pounds
+    let weightInput = prompt("Enter your weight in pounds (lb):");
+
+    // Validate weight input
+    if (weightInput === null || weightInput.trim() === "") {
+      alert("❌ Weight not entered.");
+    } else if (isNaN(weightInput) || Number(weightInput) <= 0) {
+      alert("❌ Please enter a valid positive number for weight.");
+    } else {
+      // Ask for height in inches
+      let heightInput = prompt("Enter your height in inches (in):");
+
+      // Validate height input
+      if (heightInput === null || heightInput.trim() === "") {
+        alert("❌ Height not entered.");
+      } else if (isNaN(heightInput) || Number(heightInput) <= 0) {
+        alert("❌ Please enter a valid positive number for height.");
+      } else {
+        // Convert inputs to numbers
+        let weight = Number(weightInput);
+        let height = Number(heightInput);
+
+        // Calculate BMI using imperial formula
+        let bmi = (weight / (height * height)) * 703;
+
+        // Round BMI to one decimal place
+        let roundedBMI = bmi.toFixed(1);
+
+        // Display result
+        alert(`Your BMI is ${roundedBMI}`);
+      }
+    }
+  </script>
+</body>
+</html>
