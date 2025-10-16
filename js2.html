@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add to Cart System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 40px;
+    }
+    h1 {
+      color: #333;
+    }
+    .product {
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+    .total {
+      font-weight: bold;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🛒 Add to Cart System</h1>
+
+  <!-- Product List -->
+  <div id="productList"></div>
+
+  <!-- Cart Table -->
+  <h2>Your Cart</h2>
+  <table id="cartTable">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price ($)</th>
+        <th>Quantity</th>
+        <th>Subtotal ($)</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="cartBody"></tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3" class="total">Total</td>
+        <td colspan="2" class="total" id="totalPrice">$0.00</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <script>
+    // --- Step 1: Create product list ---
+    const products = [
+      { name: "Laptop", price: 850 },
+      { name: "Headphones", price: 120 },
+      { name: "Smartphone", price: 699 },
+      { name: "Keyboard", price: 75 }
+    ];
+
+    // --- Step 2: Empty cart array to store items ---
+    let cart = [];
+
+    // --- Step 3: Display products dynamically on the page ---
+    const productList = document.getElementById("productList");
+
+    products.forEach(product => {
+      const div = document.createElement("div");
+      div.classList.add("product");
+      div.innerHTML = `
+        <span><strong>${product.name}</strong> - $${product.price}</span>
+        <button onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
+      `;
+      productList.appendChild(div);
+    });
+
+    // --- Step 4: Function to add items to cart ---
+    function addToCart(itemName, price) {
+      try {
+        // Validation
+        if (!itemName || price <= 0 || isNaN(price)) {
+          throw new Error("Invalid product details!");
+        }
+
+        // Check if item already exists
+        const existingItem = cart.find(item => item.name === itemName);
+        if (existingItem) {
+          existingItem.quantity++;
+        } else {
+          cart.push({ name: itemName, price: price, quantity: 1 });
+        }
+
+        // Update cart display
+        updateCart();
+      } catch (error) {
+        alert("Error: " + error.message);
+      }
+    }
+
+    // --- Step 5: Function to update the cart display ---
+    function updateCart() {
+      const cartBody = document.getElementById("cartBody");
+      const totalPriceElement = document.getElementById("totalPrice");
+      cartBody.innerHTML = ""; // Clear previous rows
+      let total = 0;
+
+      // Loop through each cart item
+      cart.forEach((item, index) => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+
+        // Create table row
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${item.name}</td>
+          <td>${item.price.toFixed(2)}</td>
+          <td>${item.quantity}</td>
+          <td>${subtotal.toFixed(2)}</td>
+          <td><button onclick="removeFromCart(${index})">Remove</button></td>
+        `;
+        cartBody.appendChild(row);
+      });
+
+      totalPriceElement.textContent = `$${total.toFixed(2)}`;
+    }
+
+    // --- Step 6: Function to remove an item from cart ---
+    function removeFromCart(index) {
+      cart.splice(index, 1); // remove item from array
+      updateCart(); // refresh display
+    }
+
+  </script>
+
+</body>
+</html>

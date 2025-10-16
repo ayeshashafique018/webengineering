@@ -1,0 +1,151 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #fdfbfb, #e0f7fa);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  color: #444;
+}
+
+/* Main Container */
+.container {
+  background: #fff;
+  padding: 30px;
+  width: 600px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 2px solid #f3e5f5;
+  text-align: center;
+}
+
+/* Headings */
+h2 {
+  color: #6a1b9a;
+  margin-bottom: 8px;
+}
+.subtitle {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+/* Form Area */
+.form-area {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.form-area input,
+.form-area select {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  width: 30%;
+  transition: 0.2s;
+}
+
+.form-area input:focus,
+.form-area select:focus {
+  border-color: #ba68c8;
+  box-shadow: 0 0 5px rgba(186, 104, 200, 0.3);
+}
+
+.form-area button {
+  background: linear-gradient(135deg, #81d4fa, #ce93d8);
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.form-area button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #4fc3f7, #ba68c8);
+}
+
+/* Filter Section */
+.filter-section {
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+.filter-section label {
+  font-size: 14px;
+  color: #555;
+  margin-right: 8px;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+
+th {
+  background: #e1bee7;
+  color: #4a148c;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+td {
+  background: #f3e5f5;
+  padding: 8px;
+  text-align: center;
+  border-radius: 5px;
+  color: #444;
+}
+
+tr:nth-child(even) td {
+  background: #ede7f6;
+}
+
+button.delete-btn {
+  background: #ef9a9a;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: white;
+  font-size: 13px;
+}
+
+button.delete-btn:hover {
+  background: #e57373;
+}
+
+/* Total */
+#totalDisplay {
+  font-weight: 600;
+  background: #f3e5f5;
+  padding: 10px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+/* Reset Button */
+.reset-btn {
+  background: linear-gradient(135deg, #ffb74d, #f06292);
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.reset-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #ffa726, #ec407a);
+}

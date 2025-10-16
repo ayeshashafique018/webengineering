@@ -1,0 +1,115 @@
+/* 🌸 General Layout */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #fdfbfb, #ebedee);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  color: #444;
+}
+
+/* 🌷 Main Container */
+.container {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  width: 420px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border: 2px solid #f3e5f5;
+}
+
+/* Header and Subtitle */
+h2 {
+  color: #6a1b9a;
+  margin-bottom: 8px;
+}
+.subtitle {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.button-group button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 10px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #b39ddb, #ce93d8);
+  color: white;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.button-group button:hover {
+  background: linear-gradient(135deg, #ab47bc, #ba68c8);
+  transform: scale(1.05);
+}
+
+/* Dynamic Form Area */
+.form-area {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.form-area label {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.form-area input,
+.form-area select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.2s;
+  font-size: 14px;
+}
+
+.form-area input:focus,
+.form-area select:focus {
+  border-color: #ab47bc;
+  box-shadow: 0 0 5px rgba(171, 71, 188, 0.3);
+}
+
+/* Validation Error Highlight */
+.invalid {
+  border-color: #ef5350 !important;
+  background: #ffebee;
+}
+
+/* Submit Button */
+.submit-btn {
+  margin-top: 20px;
+  background: linear-gradient(135deg, #81d4fa, #9575cd);
+  border: none;
+  border-radius: 25px;
+  padding: 12px 20px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #4fc3f7, #7e57c2);
+}
